@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MyTestPackage"
+    nsURI="http://www.mytest.com" nsPrefix="test">
+  <eAnnotations source="myPackageAnnotation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Root" abstract="true">
+    <eAnnotations source="myAnnotation to the Root Class">
+      <details key="firstproperty" value="firstvalue"/>
+      <details key="secondProperty" value="secondValue"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selfRef" eType="#//Root"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="MySubClasses" upperBound="3"
+        eType="#//MySubClass" defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MySubClass" eSuperTypes="#//Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refmysecsubclass" eType="#//mySecPackage/MySecPackageClass"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="age" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Color" eType="#//Colors"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Colors">
+    <eLiterals name="White"/>
+    <eLiterals name="Green" value="1"/>
+    <eLiterals name="Red" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MySubSubClass" eSuperTypes="#//MySubClass"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MyInterfaceClass" abstract="true" interface="true"
+      eSuperTypes="#//mySubPackage/mySubPackageClass">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test" eType="#//mySubPackage/mySubPackageClass2"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="theAge" eType="#//over12"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="over12" instanceClassName="int"/>
+  <eSubpackages name="mySubPackage" nsURI="http://www.mySubtest.com" nsPrefix="mySub">
+    <eClassifiers xsi:type="ecore:EClass" name="mySubPackageClass" eSuperTypes="#//Root"/>
+    <eClassifiers xsi:type="ecore:EClass" name="mySubPackageClass2"/>
+    <eSubpackages name="MySubSubPackage" nsURI="http://www.mySubSubtest.com" nsPrefix="subSub"/>
+  </eSubpackages>
+  <eSubpackages name="mySecPackage" nsURI="http://www.mySecSubtest.com" nsPrefix="mySecSub">
+    <eClassifiers xsi:type="ecore:EClass" name="MySecPackageClass"/>
+  </eSubpackages>
+</ecore:EPackage>

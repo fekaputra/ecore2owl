@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ECORE2JENAOWLWITHInstances/src"
+    modelPluginID="ECORE2JENAOWLWITHInstances" modelName="TransformEcoreTestExtended"
+    importerID="org.eclipse.emf.importer.ecore">
+  <foreignModel>transformEcoreTestExtended.ecore</foreignModel>
+  <genPackages prefix="MyTestPackage" disposableProviderFactory="true" ecorePackage="transformEcoreTestExtended.ecore#/">
+    <genEnums ecoreEnum="transformEcoreTestExtended.ecore#//Colors">
+      <genEnumLiterals ecoreEnumLiteral="transformEcoreTestExtended.ecore#//Colors/White"/>
+      <genEnumLiterals ecoreEnumLiteral="transformEcoreTestExtended.ecore#//Colors/Green"/>
+      <genEnumLiterals ecoreEnumLiteral="transformEcoreTestExtended.ecore#//Colors/Red"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="transformEcoreTestExtended.ecore#//over12"/>
+    <genClasses ecoreClass="transformEcoreTestExtended.ecore#//Root">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference transformEcoreTestExtended.ecore#//Root/selfRef"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference transformEcoreTestExtended.ecore#//Root/MySubClasses"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute transformEcoreTestExtended.ecore#//Root/numbers"/>
+    </genClasses>
+    <genClasses ecoreClass="transformEcoreTestExtended.ecore#//MySubClass">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference transformEcoreTestExtended.ecore#//MySubClass/refmysecsubclass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute transformEcoreTestExtended.ecore#//MySubClass/age"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute transformEcoreTestExtended.ecore#//MySubClass/Color"/>
+    </genClasses>
+    <genClasses ecoreClass="transformEcoreTestExtended.ecore#//MySubSubClass"/>
+    <genClasses ecoreClass="transformEcoreTestExtended.ecore#//MyInterfaceClass">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference transformEcoreTestExtended.ecore#//MyInterfaceClass/test"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute transformEcoreTestExtended.ecore#//MyInterfaceClass/theAge"/>
+    </genClasses>
+    <nestedGenPackages prefix="MySubPackage" disposableProviderFactory="true" ecorePackage="transformEcoreTestExtended.ecore#//mySubPackage">
+      <genClasses ecoreClass="transformEcoreTestExtended.ecore#//mySubPackage/mySubPackageClass"/>
+      <genClasses ecoreClass="transformEcoreTestExtended.ecore#//mySubPackage/mySubPackageClass2"/>
+      <nestedGenPackages prefix="MySubSubPackage" disposableProviderFactory="true"
+          ecorePackage="transformEcoreTestExtended.ecore#//mySubPackage/MySubSubPackage"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="MySecPackage" disposableProviderFactory="true" ecorePackage="transformEcoreTestExtended.ecore#//mySecPackage">
+      <genClasses ecoreClass="transformEcoreTestExtended.ecore#//mySecPackage/MySecPackageClass"/>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

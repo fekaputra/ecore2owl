@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:test="http://www.mytest.com">
+  <test:Root selfRef="/1" MySubClasses="/2 /3 /4">
+    <numbers>1</numbers>
+    <numbers>2</numbers>
+    <numbers>3</numbers>
+  </test:Root>
+  <test:Root selfRef="/0">
+    <numbers>8</numbers>
+    <numbers>9</numbers>
+    <numbers>10</numbers>
+  </test:Root>
+  <test:MySubClass age="5" Color="Green"/>
+  <test:MySubClass age="14" Color="Red"/>
+  <test:MySubClass age="56"/>
+</xmi:XMI>

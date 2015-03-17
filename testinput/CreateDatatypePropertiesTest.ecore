@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MyTestPackage"
+    nsURI="http://www.mytest.com" nsPrefix="test">
+  <eClassifiers xsi:type="ecore:EClass" name="ClassA">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Colors"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="#//MySubPackage/Numbers"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Colors">
+    <eLiterals name="Black"/>
+    <eLiterals name="White" value="1"/>
+  </eClassifiers>
+  <eSubpackages name="MySubPackage" nsURI="http://www.mysubtest.com" nsPrefix="mysub">
+    <eClassifiers xsi:type="ecore:EEnum" name="Numbers">
+      <eLiterals name="Zero"/>
+      <eLiterals name="One" value="1"/>
+      <eLiterals name="Two" value="2"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

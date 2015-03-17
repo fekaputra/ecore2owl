@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MyTestPackage"
+    nsURI="http://www.mytest.com" nsPrefix="test">
+  <eClassifiers xsi:type="ecore:EClass" name="MyClassWithoutComments"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MyClassWithSimpleComments">
+    <eAnnotations source="MyComment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MyClassWithComplexComments">
+    <eAnnotations source="TestComment">
+      <details key="prop1" value="value1"/>
+      <details key="prop2" value="value2"/>
+    </eAnnotations>
+    <eAnnotations source="SecondTestComment">
+      <details key="prop12" value="value12"/>
+      <details key="prop22" value="value22"/>
+    </eAnnotations>
+    <eAnnotations source="ThirdTestComment"/>
+  </eClassifiers>
+</ecore:EPackage>
