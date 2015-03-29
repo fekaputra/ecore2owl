@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:test="http://www.mytest.com">
-  <test:Root selfRef="/1" MySubClasses="/2 /3 /4"/>
-  <test:Root selfRef="/0"/>
-  <test:MySubClass age="5" Color="Green"/>
-  <test:MySubClass age="14" Color="Red"/>
-  <test:MySubClass age="56"/>
-  <test:MyInterfaceClass theAge="13"/>
-</xmi:XMI>
