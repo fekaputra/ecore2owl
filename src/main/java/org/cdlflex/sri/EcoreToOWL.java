@@ -159,7 +159,6 @@ public class EcoreToOWL {
         throws TransformationException {
         log.info("start convertEcore2OWLInclusiveInstances");
 
-        // OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
         OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
         log.info("ontModel created");
         EPackage ep = getEPackage(modelFile);
@@ -479,7 +478,8 @@ public class EcoreToOWL {
                                 || eAttribute.getEAttributeType().getInstanceClass() == String.class
                                 || eAttribute.getEAttributeType() == EcorePackage.eINSTANCE.getEChar()) {// string
                                 datatypeProperty.addRange(XSD.xstring);
-                            } else if (eAttribute.getEAttributeType().getInstanceClass() == XMLGregorianCalendar.class) {
+                            } else if (eAttribute.getEAttributeType()
+                                    .getInstanceClass() == XMLGregorianCalendar.class) {
                                 datatypeProperty.addRange(XSD.dateTime);
                             }
 
@@ -510,16 +510,17 @@ public class EcoreToOWL {
                                 System.out.println(datatypeProperty.getDomain());
 
                             }
-                            
+
                         } else {
-                        	
-                        	// type is an EEnum
+
+                            // type is an EEnum
                             datatypeProperty.addComment(
                                     "xdatarange" + " " + ((EEnum) eAttribute.getEAttributeType()).getName() + " "
                                         + ((EEnum) eAttribute.getEAttributeType()).getEPackage().getNsPrefix() + " "
-                                        + ((EEnum) eAttribute.getEAttributeType()).getEPackage().getNsURI(), null);
-                            datatypeProperty.addRange(createEnumeration((EEnum) eAttribute.getEAttributeType(),
-                                    ontModel));
+                                        + ((EEnum) eAttribute.getEAttributeType()).getEPackage().getNsURI(),
+                                    null);
+                            datatypeProperty
+                                    .addRange(createEnumeration((EEnum) eAttribute.getEAttributeType(), ontModel));
                         }
                     }
 
@@ -648,9 +649,8 @@ public class EcoreToOWL {
                     if (eReference.getEReferenceType() != null) {
 
                         // set the range for the objectProperty
-                        range =
-                            ontModel.getOntClass(eReference.getEReferenceType().getEPackage().getNsURI() + "#"
-                                + eReference.getEReferenceType().getName());
+                        range = ontModel.getOntClass(eReference.getEReferenceType().getEPackage().getNsURI() + "#"
+                            + eReference.getEReferenceType().getName());
 
                         if (range == null) {// range is in a not yet visited subpackage
                             range = createClass(eReference.getEReferenceType(), ontModel);
@@ -919,12 +919,11 @@ public class EcoreToOWL {
                     if (feature instanceof EReference) {
 
                         // get the corresponding objectproperty out of the ontModel
-                        objectProperty =
-                            ontModel.getObjectProperty(feature.getEContainingClass().getEPackage().getNsURI() + "#"
-                                + feature.getName());
+                        objectProperty = ontModel.getObjectProperty(
+                                feature.getEContainingClass().getEPackage().getNsURI() + "#" + feature.getName());
                         if (objectProperty == null) {
-                            throw new TransformationException("ObjectProperty for Statement Creation not found: "
-                                + feature.toString());
+                            throw new TransformationException(
+                                    "ObjectProperty for Statement Creation not found: " + feature.toString());
                         }
 
                         // create the statements
@@ -959,12 +958,11 @@ public class EcoreToOWL {
                     else if (feature instanceof EAttribute) {
 
                         // get the corresponding datatypeProperty out of the ontModel
-                        datatypeProperty =
-                            ontModel.getDatatypeProperty(feature.getEContainingClass().getEPackage().getNsURI() + "#"
-                                + feature.getName());
+                        datatypeProperty = ontModel.getDatatypeProperty(
+                                feature.getEContainingClass().getEPackage().getNsURI() + "#" + feature.getName());
                         if (datatypeProperty == null) {
-                            throw new TransformationException("DatatypeProperty for Statement Creation not found: "
-                                + feature.toString());
+                            throw new TransformationException(
+                                    "DatatypeProperty for Statement Creation not found: " + feature.toString());
                         }
 
                         // create the statements
@@ -980,8 +978,8 @@ public class EcoreToOWL {
                         }
                     }
                 }
-            }// end iteration over features
-        }// end iteration over instances
+            } // end iteration over features
+        } // end iteration over instances
     }
 
     /**
